@@ -1,0 +1,10 @@
+
+  <app-navbar *ngIf="!loginService.loggeado"></app-navbar>
+  <app-navbar-loggeado  *ngIf="loginService.loggeado"></app-navbar-loggeado>
+  <router-outlet></router-outlet>
+  <app-footer  *ngIf="!loginService.loggeado"></app-footer>
+  <app-footer-loggeado  *ngIf="loginService.loggeado"></app-footer-loggeado>
+
+
+
+

@@ -1,0 +1,39 @@
+button {
+  padding: 0.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.update-btn {
+  background-color: #2196F3; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  font-weight: bold; /* Añade negrita al texto */
+  border-radius: 50%; /* Hace que el botón sea redondeado */
+  outline: none; /* Quita el borde del botón */
+  cursor: pointer; /* Cambia el cursor del mouse al pasar sobre el botón */
+  transition: all 0.3s ease-in-out; /* Agrega una transición suave */
+}
+
+.update-btn:hover {
+  background-color: #0c7cd5; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
+
+.disabled-btn {
+  opacity: 0.5; /* Cambia la opacidad del botón */
+  cursor: not-allowed; /* Cambia el cursor del mouse */
+  background-color: #ccc;
+  color: #999;
+}

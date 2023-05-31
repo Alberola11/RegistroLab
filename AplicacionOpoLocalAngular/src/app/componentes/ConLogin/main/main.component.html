@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div id="carouselExampleIndicators" class="carousel slide mt-1" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../../../assets/img_2.png" class="d-block w-100" width="1200" height="400" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../../../assets/img_3.png" class="d-block w-100 " width="1200" height="400" alt="..." >
+      </div>
+      <div class="carousel-item">
+        <img src="../../../../assets/img_4.png" class="d-block w-100" width="1200" height="400" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <mat-card class="example-card mt-5 " style="background-color: transparent;">
+    <mat-card-title class="text-center text-dark">RegistroLab</mat-card-title>
+    <mat-card-content class="text-center mt-4">
+      <p>Registra tus entradas y salidas con facilidad y precisión, ¡y convierte cada día en una oportunidad para mejorar y alcanzar tus metas con RegistroLab!"</p>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+      <button mat-button class="" [ngClass]="{'disabled-button': entradaRegistrada}"  (click)="registrarEntradaBoton()" [disabled]="entradaRegistrada">Registrar Entrada</button>
+      <button mat-button class="" [ngClass]="{'disabled-button': !entradaRegistrada}"  (click)="registrarSalidaBoton()" [disabled]="!entradaRegistrada">Registrar Salida</button>
+      <div *ngIf="entradaRegistrada">
+        <p class="text-danger">Debes registrar una salida antes de volver a registrar una entrada</p>
+      </div>
+      <div *ngIf="!entradaRegistrada">
+        <p class="text-danger">Debes registrar una entrada antes de registrar una salida</p>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+

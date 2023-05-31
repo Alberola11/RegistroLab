@@ -1,0 +1,31 @@
+.tabla-container {
+  display: inline-block;
+  width: 100%; /* ancho del contenedor */
+  margin: 0 10px;
+  background-color:transparent ;
+}
+
+.mat-paginator {
+  background-color: transparent;
+}
+
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+.my-table th,
+.my-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid cornsilk;
+
+}
+
+.my-table th {
+
+  color: black;
+  font-weight: bold;
+  font-size:20px;
+}

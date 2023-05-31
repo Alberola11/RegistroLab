@@ -1,0 +1,88 @@
+
+
+<div class="container">
+  <div class="row justify-content-center align-content-between mt-3 mb-3">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="btn btn-primary">
+          <h4 class="text-center mt-3">Perfil Usuario</h4>
+        </div>
+        <div class="card-body row">
+          <div class="form-group col-6">
+            <label>Foto de perfil</label>
+            <div class="d-flex flex-column">
+              <img *ngIf="usuarioAutentificado?.fotoPerfil!=null" src="{{usuarioAutentificado?.fotoPerfil}}" alt="Imagen de inicio de sesión" class="rounded-circle" style="width: 100px">
+              <input *ngIf="usuarioAutentificado?.fotoPerfil==null" type="file" class="form-control-file" (change)="subirArchivo($event)" [value]='' accept="image/*">
+              <div>
+                <label for="actualizarFotoPerfil">Actualizar foto de perfil</label>
+                <input *ngIf="usuarioAutentificado?.fotoPerfil!=null" id="actualizarFotoPerfil" type="file" class="form-control-file" (change)="subirArchivo($event)" [value]='' accept="image/*">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6  mt-2 text-center d-flex align-items-center">
+            <form [formGroup]="formulario" >
+              <div class="col-12">
+                <mat-form-field class="col-8">
+                  <mat-label>{{usuarioAutentificado?.mail}}</mat-label>
+                  <input matInput #inputEmail placeholder=" Actualizar e-mail" formControlName="email">
+                  <mat-hint>Introduce tu email</mat-hint>
+                  <mat-error *ngIf="formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)">
+                    <span *ngIf="formulario.get('email')?.errors?.['required']">El campo es obligatorio</span>
+                    <span *ngIf="formulario.get('email')?.errors?.['email']">El email introducido no es válido</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-button-toggle *ngIf="formulario.get('email')?.invalid" class="rounded-circle update-btn"
+                                   [disabled]="formulario.invalid || formulario.get('email')?.invalid"
+                                   [ngClass]="{'disabled-btn': formulario.get('email')?.invalid}"
+                                   [ngStyle]="{'opacity': formulario.get('email')?.invalid ? '0.5' : '1'}"
+                                   >
+                  Actualizar
+                </mat-button-toggle>
+                <mat-button-toggle *ngIf="formulario.get('email')?.valid" class="rounded-circle update-btn" (click)="actualizarEmail()">Actualizar</mat-button-toggle>
+              </div>
+
+              <div  class="col-12">
+                <mat-form-field class="col-8">
+                  <mat-label>{{usuarioAutentificado?.nombre}}</mat-label>
+                  <input matInput #input placeholder="Actualizar Nombre" formControlName="nombre">
+                  <mat-hint>Escribe tu nombre</mat-hint>
+                  <mat-error *ngIf="formulario.get('nombre')?.errors?.['required']">El campo es obligatorio</mat-error>
+                </mat-form-field>
+                <mat-button-toggle *ngIf="formulario.get('nombre')?.invalid" class="rounded-circle update-btn"
+                                   [disabled]="formulario.invalid || formulario.get('nombre')?.invalid"
+                                   [ngClass]="{'disabled-btn': formulario.get('nombre')?.invalid}"
+                                   [ngStyle]="{'opacity': formulario.get('nombre')?.invalid ? '0.5' : '1'}"
+                >
+                  Actualizar
+                </mat-button-toggle>
+                <mat-button-toggle   *ngIf="formulario.get('nombre')?.valid" class="rounded-circle update-btn" (click)="actualizarNombre()">Actualizar</mat-button-toggle>
+              </div>
+              <div class="col-12">
+                <mat-form-field class="col-8">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput #inputPassword placeholder="Actualizar Contraseña" formControlName="password" type="password">
+                  <mat-hint>Introduce tu contraseña</mat-hint>
+                  <mat-error *ngIf="formulario.get('password')?.invalid && (formulario.get('password')?.dirty || formulario.get('password')?.touched)">
+                    <span *ngIf="formulario.get('password')?.errors?.['required']">El campo es obligatorio</span>
+                    <span *ngIf="formulario.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</span>
+                    <span *ngIf="formulario.get('password')?.errors?.['maxlength']">La contraseña debe tener como máximo 16 caracteres</span>
+                    <span *ngIf="formulario.get('password')?.errors?.['pattern']">La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-button-toggle *ngIf="formulario.get('password')?.invalid" class="rounded-circle update-btn"
+                                   [disabled]="formulario.invalid || formulario.get('password')?.invalid"
+                                   [ngClass]="{'disabled-btn': formulario.get('password')?.invalid}"
+                                   [ngStyle]="{'opacity': formulario.get('password')?.invalid ? '0.5' : '1'}"
+                >
+                  Actualizar
+                </mat-button-toggle>
+                <mat-button-toggle  *ngIf="formulario.get('password')?.valid" class="rounded-circle update-btn" (click)="actualizarContra()">Actualizar</mat-button-toggle>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

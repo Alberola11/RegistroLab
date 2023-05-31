@@ -1,0 +1,38 @@
+<header class="p-3 mb-3 border-bottom bg-light">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active px-2 link-dark" [routerLink]="['listado-horas-usuario']" >Lista</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active px-2 link-dark" [routerLink]="['calendario']" >Calendario</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active px-2 link-dark" [routerLink]="['perfil']" >Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active px-2 link-dark" [routerLink]="['main']" >Registro</a>
+        </li>
+
+      </ul>
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-4">
+          <img src="{{usuario?.fotoPerfil}}" alt="mdo" width="100" height="44" class="rounded-circle img-fluid">
+        </div>
+        <div class="col-3">
+          <p >{{usuario?.nombre}}</p>
+
+        </div>
+        <div class="col-4">
+          <button (click)="onClick()" class="btn btn-outline-danger">Salir</button>
+        </div>
+      </div>
+      </div>
+    </div>
+</header>

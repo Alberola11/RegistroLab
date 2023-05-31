@@ -1,0 +1,51 @@
+
+<div class="container">
+  <div class="row justify-content-center align-content-between mt-3 mb-3">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="" style="background-color: lightskyblue">
+          <h4 class="text-center mt-3">Iniciar sesión</h4>
+        </div>
+        <div class="card-body row">
+          <div class="col-md-6  d-flex align-items-center">
+            <img src="/assets/img_6.png" alt="Imagen de inicio de sesión" class="img-fluid">
+          </div>
+          <div class="col-md-6  mt-2 text-center d-flex align-items-center">
+            <form class="w-100 h-100 align-items-center" [formGroup]="formLogin" >
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="email" placeholder="Ingresa tu correo electrónico" required>
+                  <button class="input-group-text"><i class="fa fa-envelope"></i></button>
+                </div>
+                <mat-error *ngIf="formLogin.get('email')?.invalid && (formLogin.get('email')?.dirty || formLogin.get('email')?.touched)">
+                  <span *ngIf="formLogin.get('email')?.errors?.['required']">El campo es obligatorio</span>
+                  <span *ngIf="formLogin.get('email')?.errors?.['email']">El email introducido no es válido</span>
+                </mat-error>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" formControlName="password" placeholder="Ingresa tu contraseña" #passwordInput>
+                  <button class="input-group-text" (click)="togglePasswordVisibility()" #passwordIcon><i class="fas fa-eye"></i></button>
+                </div>
+                <mat-error   *ngIf=" formLogin.get('password')?.dirty || formLogin.get('password')?.touched">
+                  <span   *ngIf="formLogin.get('password')?.errors?.['required']">El campo es obligatorio</span>
+                </mat-error>
+              </div>
+              <div class="d-grid gap-2 mb-3">
+                <input type="submit" style="background-color: lightskyblue"  value="Iniciar sesión" (click)="onSubmit()">
+              </div>
+              <div class="mb-3">
+                <a class="link-style"  (click)="openDialog()">¿Olvidaste tu contraseña?</a>
+              </div>
+              <div class="mb-3">
+                <a  class="link-style"  (click)="navigateToRegister()">¿No estás registrado? Regístrate aquí.</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

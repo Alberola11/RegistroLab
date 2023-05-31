@@ -1,0 +1,53 @@
+
+
+<div class="container">
+  <div class="row justify-content-center align-content-between mt-3 mb-3">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="btn btn-primary">
+          <h4 class="text-center mt-3">Registro de usuario</h4>
+        </div>
+        <div class="card-body row">
+          <div class="col-md-6  d-flex align-items-center">
+            <img src="assets/img_8.png" alt="Imagen de inicio de sesión" class="img-fluid">
+          </div>
+          <div class="col-md-6  mt-2 text-center d-flex align-items-center">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+              <mat-form-field class="col-12">
+                <mat-label>Email</mat-label>
+                <input matInput #inputEmail placeholder="Email" formControlName="email">
+                <mat-hint>Introduce tu email</mat-hint>
+                <mat-error *ngIf="formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)">
+                  <span *ngIf="formulario.get('email')?.errors?.['required']">El campo es obligatorio</span>
+                  <span *ngIf="formulario.get('email')?.errors?.['email']">El email introducido no es válido</span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="col-12">
+                <mat-label>Nombre</mat-label>
+                <input matInput #input placeholder="Nombre" formControlName="nombre">
+                <mat-hint>Escribe tu nombre</mat-hint>
+                <mat-error *ngIf="formulario.get('nombre')?.errors?.['required']">El campo es obligatorio</mat-error>
+              </mat-form-field>
+              <mat-form-field class="col-12">
+                <mat-label>Contraseña</mat-label>
+                <input matInput #inputPassword placeholder="Contraseña" formControlName="password" type="password">
+                <mat-hint>Introduce tu contraseña</mat-hint>
+                <mat-error *ngIf="formulario.get('password')?.invalid && (formulario.get('password')?.dirty || formulario.get('password')?.touched)">
+                  <span *ngIf="formulario.get('password')?.errors?.['required']">El campo es obligatorio</span>
+                  <span *ngIf="formulario.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</span>
+                  <span *ngIf="formulario.get('password')?.errors?.['maxlength']">La contraseña debe tener como máximo 16 caracteres</span>
+                  <span *ngIf="formulario.get('password')?.errors?.['pattern']">La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial</span>
+                </mat-error>
+
+              </mat-form-field>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success" [disabled]="!formulario.valid" > Guardar</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
